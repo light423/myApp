@@ -19,6 +19,7 @@ function App() {
         >
           오른쪽 버튼
         </CustomButton>
+        <CustomButton className="primary">텍스트 버튼</CustomButton>
       </header>
     </div>
   );
