@@ -1,22 +1,36 @@
-import React from "react";
+import "./CustomButton.css";
 
 const CustomButton = ({
   children,
-  icon,
-  iconPosition = "left",
+  prefix,
+  surfix,
   onClick,
-  className,
+  size = "medium",
+  variant = "",
+  type = "button",
+  disabled = false,
+  border = "",
 }) => {
-  return (
-    <button onClick={onClick} className={`btn btn-${className}`}>
-      {icon && iconPosition === "left" && (
-        <span className="icon-area">{icon}</span>
-      )}
-      {children && <span className="text-area">{children}</span>}
+  //배열에 넣고 싶은 class를 나열함
+  const classList = [
+    "custom-button",
+    `btn-${size}`,
+    variant ? `btn-${variant}` : null,
+    border ? `borderType-${border}` : null,
+  ];
 
-      {icon && iconPosition === "right" && (
-        <span className="icon-area">{icon}</span>
-      )}
+  // filter(boolean)로 null, undefined, 빈 문자열 등을 제거하고 공백으로 합친다.
+  const className = classList.filter(Boolean).join(" ");
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={className}
+      disabled={disabled}
+    >
+      {prefix && prefix}
+      {children && <span>{children}</span>}
+      {surfix && surfix}
     </button>
   );
 };

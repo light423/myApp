@@ -1,25 +1,31 @@
 import "./App.css";
 import CustomButton from "./Components/CustomButton";
-import { PlusOutlined } from "@ant-design/icons";
+import AccordionItem from "./Components/AccordionItem";
+import { PlusOutlined, CaretDownOutlined } from "@ant-design/icons";
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <CustomButton
-          className="primary"
-          icon={<PlusOutlined />}
-          iconPosition="left"
-        >
+        <CustomButton prefix={<PlusOutlined />} size="small" variant="primary">
           왼쪽 아이콘 버튼
         </CustomButton>
-        <CustomButton
-          className="primary"
-          icon={<PlusOutlined />}
-          iconPosition="right"
-        >
-          오른쪽 버튼
+        <CustomButton surfix={<PlusOutlined />}>
+          오른쪽 아이콘 버튼
         </CustomButton>
-        <CustomButton className="primary">텍스트 버튼</CustomButton>
+        <CustomButton>
+          <CaretDownOutlined />
+        </CustomButton>
+        <CustomButton size="large">텍스트 버튼</CustomButton>
+        <CustomButton size="large" disabled>
+          disabled 텍스트 버튼
+        </CustomButton>
+        <CustomButton size="large" variant="primary">
+          텍스트 버튼
+        </CustomButton>
+        <CustomButton border="solid" variant="primary">
+          solid 텍스트 버튼
+        </CustomButton>
+        <AccordionItem />
       </header>
     </div>
   );
