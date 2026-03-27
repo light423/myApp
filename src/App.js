@@ -15,7 +15,7 @@ function App() {
           <CustomButton prefix={<PlusOutlined />}>
             왼쪽 아이콘 버튼
           </CustomButton>
-          <CustomButton surfix={<PlusOutlined />}>
+          <CustomButton suffix={<PlusOutlined />}>
             오른쪽 아이콘 버튼
           </CustomButton>
         </div>
