@@ -9,6 +9,9 @@ function App() {
         <CustomButton prefix={<PlusOutlined />} size="small" variant="primary">
           왼쪽 아이콘 버튼
         </CustomButton>
+        <CustomButton prefix={<PlusOutlined />} size="large" variant="primary">
+          왼쪽 아이콘 버튼
+        </CustomButton>
         <CustomButton surfix={<PlusOutlined />}>
           오른쪽 아이콘 버튼
         </CustomButton>
@@ -22,7 +25,7 @@ function App() {
         <CustomButton size="large" variant="primary">
           텍스트 버튼
         </CustomButton>
-        <CustomButton border="solid" variant="primary">
+        <CustomButton border="solid" variant="secondary">
           solid 텍스트 버튼
         </CustomButton>
         <AccordionItem />
