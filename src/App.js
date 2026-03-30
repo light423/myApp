@@ -1,11 +1,22 @@
 import "./App.css";
-import CustomButton from "./Components/CustomButton";
-import AccordionItem from "./Components/AccordionItem";
+import "./reset.css";
+import { CustomButton, AccordionGroup, CustomTab } from "./Components";
 import { PlusOutlined, CaretDownOutlined } from "@ant-design/icons";
+import "modern-normalize";
+import { createGlobalStyle } from "styled-components";
 function App() {
+  const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com');
+  body, button, input, select, textarea {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  `;
   return (
     <div className="App">
+      <GlobalStyle />
       <header className="App-header">
+        <CustomTab></CustomTab>
+        <AccordionGroup></AccordionGroup>
         <div>
           <CustomButton size="small">small 버튼</CustomButton>
           <CustomButton>default 버튼</CustomButton>
@@ -46,7 +57,6 @@ function App() {
             secondary border 버튼
           </CustomButton>
         </div>
-        <AccordionItem />
       </header>
     </div>
   );
