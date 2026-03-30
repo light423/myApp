@@ -11,10 +11,20 @@ const TabMenu = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  li {
-    padding: 16px;
-    cursor: pointer;
-  }
+  background-color: red;
+`;
+const TabItem = styled.li`
+  padding: 16px;
+  cursor: pointer;
+
+  ${(props) =>
+    props.$isActive &&
+    css`
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      border-bottom: 2px solid #000;
+    `}
 `;
 const TabContent = styled.div`
   padding: 16px;
@@ -34,13 +44,13 @@ function CustomTab() {
       {/* tab heder */}
       <TabMenu>
         {tabData.map((tab, index) => (
-          <li
+          <TabItem
             key={index}
-            className={activeTab === index ? "active" : ""}
+            $isActive={activeTab === index}
             onClick={() => setActiveTab(index)}
           >
             {tab.title}
-          </li>
+          </TabItem>
         ))}
       </TabMenu>
       {/* tab content */}
