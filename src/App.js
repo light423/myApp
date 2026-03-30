@@ -1,6 +1,11 @@
 import "./App.css";
 import "./reset.css";
-import { CustomButton, AccordionGroup, CustomTab } from "./Components";
+import {
+  CustomButton,
+  AccordionGroup,
+  CustomTab,
+  CustomInput,
+} from "./Components";
 import { PlusOutlined, CaretDownOutlined } from "@ant-design/icons";
 import "modern-normalize";
 import { createGlobalStyle } from "styled-components";
@@ -15,6 +20,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <header className="App-header">
+        <CustomInput />
         <CustomTab></CustomTab>
         <AccordionGroup></AccordionGroup>
         <div>
