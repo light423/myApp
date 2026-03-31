@@ -8,3 +8,4 @@ export { default as CustomTab } from "./CustomTab";
 export { default as CustomInput } from "./CustomInput";
 export { default as CustomRadio } from "./CustomRadio";
 export { default as CustomRadioGroup } from "./CustomRadioGroup";
+export { default as FormField } from "./FormField";

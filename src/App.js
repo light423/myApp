@@ -8,6 +8,7 @@ import {
   CustomInput,
   CustomRadio,
   CustomRadioGroup,
+  FormField,
 } from "./Components";
 import {
   PlusOutlined,
@@ -27,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <FormField />
         <CustomRadioGroup
           options={options}
           defaultValue={"apple11"}
