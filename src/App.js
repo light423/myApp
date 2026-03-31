@@ -19,7 +19,7 @@ import "modern-normalize";
 // radio
 const options = [
   { label: "apple11", value: "apple11" },
-  { label: "pear", value: "pear" },
+  { label: "pear", value: "pear", disabled: true },
   { label: "orange", value: "orange" },
 ];
 
@@ -27,7 +27,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <CustomRadioGroup options={options} defaultValue={"apple11"} />
+        <CustomRadioGroup
+          options={options}
+          defaultValue={"apple11"}
+          optionType="button"
+        />
         <CustomRadio disabled>Radio 버튼</CustomRadio>
         <CustomRadio checked>Radio 버튼</CustomRadio>
         <Form layout="vertical" style={{ maxWidth: 300, padding: 20 }}>

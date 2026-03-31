@@ -1,12 +1,27 @@
 import React from "react";
 import { Radio } from "antd";
-const CustomRadioGroup = ({ defaultValue, options, ...rest }) => {
+import styled from "styled-components";
+
+//스타일 정의
+const StyleRadioGroup = styled(Radio.Group)`
+  display: flex;
+  gap: 4px;
+  .ant-radio-button-wrapper {
+    border-radius: 4px;
+    flex: 1;
+    min-width: 0;
+  }
+  .ant-radio-button-wrapper-disabled {
+    border-color: red;
+  }
+`;
+const CustomRadioGroup = ({ defaultValue, options, optionType, ...rest }) => {
   return (
     <>
-      <Radio.Group
-        block
-        options={options}
+      <StyleRadioGroup
+        options={options} //데이터 기반,서버에서 받은 데이터를 그대로 뿌려줄때
         defaultValue={defaultValue}
+        optionType={optionType}
         {...rest}
       />
     </>
