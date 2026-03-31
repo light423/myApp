@@ -1,26 +1,67 @@
 import "./App.css";
 import "./reset.css";
+import { Form } from "antd";
 import {
   CustomButton,
   AccordionGroup,
   CustomTab,
   CustomInput,
+  CustomRadio,
+  CustomRadioGroup,
 } from "./Components";
-import { PlusOutlined, CaretDownOutlined } from "@ant-design/icons";
+import {
+  PlusOutlined,
+  CaretDownOutlined,
+  InfoCircleOutlined,
+} from "@ant-design/icons";
 import "modern-normalize";
-import { createGlobalStyle } from "styled-components";
+
+// radio
+const options = [
+  { label: "apple11", value: "apple11" },
+  { label: "pear", value: "pear" },
+  { label: "orange", value: "orange" },
+];
+
 function App() {
-  const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com');
-  body, button, input, select, textarea {
-    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-  `;
   return (
     <div className="App">
-      <GlobalStyle />
       <header className="App-header">
-        <CustomInput />
+        <CustomRadioGroup options={options} defaultValue={"apple11"} />
+        <CustomRadio disabled>Radio 버튼</CustomRadio>
+        <CustomRadio checked>Radio 버튼</CustomRadio>
+        <Form layout="vertical" style={{ maxWidth: 300, padding: 20 }}>
+          <CustomInput
+            label={"이름"}
+            name={"userName1"} //name으로 label과 input의 id를 연결해줌
+            prefix={<InfoCircleOutlined style={{ color: "rgba(0,0,0,.45)" }} />}
+            rules={[
+              { required: true, message: "Please input your username!" },
+              { len: 11, message: "11자리 숫자를 정확히 입력해 주세요" },
+              { pattern: /^[0-9]+$/, message: "숫자만 입력이 가능합니다." },
+            ]}
+          />
+          <CustomInput
+            suffix={"원"}
+            allowClear={true}
+            showCount
+            label={"나이"}
+            name={"name"}
+          />
+          <CustomInput
+            allowClear={true}
+            label={"이메일"}
+            name={"userEmail"}
+            rules={[
+              { required: true, message: "Please input your userEmail!" },
+              { type: "email", message: "이메일을 정확히 입력해 주세요" },
+              {
+                pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: "형식에 맞지 않습니다.",
+              },
+            ]}
+          />
+        </Form>
         <CustomTab></CustomTab>
         <AccordionGroup></AccordionGroup>
         <div>
@@ -48,19 +89,19 @@ function App() {
           </CustomButton>
         </div>
         <div>
-          <CustomButton size="large" variant="primary">
+          <CustomButton size="large" $variant="primary">
             primary 버튼
           </CustomButton>
-          <CustomButton size="large" variant="secondary">
+          <CustomButton size="large" $variant="secondary">
             secondary 버튼
           </CustomButton>
         </div>
         <div>
-          <CustomButton size="large" variant="primary" border="solid">
-            primary border 버튼
+          <CustomButton size="large" $variant="primary" $border="solid">
+            primary $border 버튼
           </CustomButton>
-          <CustomButton size="large" variant="secondary" border="solid">
-            secondary border 버튼
+          <CustomButton size="large" $variant="secondary" $border="solid">
+            secondary $border 버튼
           </CustomButton>
         </div>
       </header>

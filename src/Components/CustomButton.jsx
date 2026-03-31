@@ -16,13 +16,13 @@ const StyledButton = styled.button`
 
   /* 사이즈 조절 */
   ${(props) =>
-    props.size === "small" &&
+    props.$size === "small" &&
     css`
       padding: 4px 8px;
       border-radius: 4px;
     `}
   ${(props) =>
-    props.size === "large" &&
+    props.$size === "large" &&
     css`
       padding: 10px 18px;
       border-radius: 8px;
@@ -30,14 +30,14 @@ const StyledButton = styled.button`
 
     /* varient */
     ${(props) =>
-    props.variant === "primary" &&
+    props.$variant === "primary" &&
     css`
       color: #fff;
       background-color: #2b5af5;
       border-color: #2b5af5;
     `}
       ${(props) =>
-    props.variant === "secondary" &&
+    props.$variant === "secondary" &&
     css`
       color: #fff;
       background-color: #09244b;
@@ -69,8 +69,8 @@ const CustomButton = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      size={size}
-      variant={variant}
+      $size={size}
+      $variant={variant}
       className={customClassName}
       {...props}
     >
