@@ -6,7 +6,8 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 8px 16px;
+  min-height: 36px;
+  padding: 9px 16px;
   cursor: pointer;
   border-radius: 6px;
   outline: none;
@@ -18,12 +19,14 @@ const StyledButton = styled.button`
   ${(props) =>
     props.$size === "small" &&
     css`
+      min-height: 32px;
       padding: 4px 8px;
       border-radius: 4px;
     `}
   ${(props) =>
     props.$size === "large" &&
     css`
+      min-height: 40px;
       padding: 10px 18px;
       border-radius: 8px;
     `}

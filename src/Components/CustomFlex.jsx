@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex } from "antd";
-const CustomSpace = ({
+const CustomFlex = ({
   className = "",
   type,
   children,
@@ -19,4 +19,4 @@ const CustomSpace = ({
   );
 };
 
-export default CustomSpace;
+export default CustomFlex;

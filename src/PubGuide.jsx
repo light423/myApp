@@ -1,6 +1,6 @@
 import "./reset.css";
 import styled, { css } from "styled-components";
-import { Form } from "antd";
+import { Form, Space, Radio, Input } from "antd";
 import {
   CustomButton,
   AccordionGroup,
@@ -11,6 +11,7 @@ import {
   FormField,
   CustomSpace,
   CustomFlex,
+  SearchForm,
 } from "./Components";
 import {
   PlusOutlined,
@@ -33,13 +34,42 @@ const GuideTitle = styled.h2`
   text-align: left;
 `;
 
+const searchItems = [
+  { label: "검색영역", name: "title", type: "inputButton", span: 1 },
+  { label: "데이트피커", name: "title", type: "datepicker", span: 1 },
+  { label: "레인지피커", name: "title", type: "rangePicker", span: 1 },
+  {
+    label: "커스텀 조회기간",
+    name: "dageRange",
+    span: 1,
+    render: (form) => (
+      <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+        <Form.Item name="dateType" noStyle initialValue="all">
+          <Radio.Group optionType="button" buttonStyle="solid">
+            <Radio.Button value="all">전체</Radio.Button>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item name="dateType" noStyle initialValue="all">
+          <Input />
+        </Form.Item>
+      </div>
+    ),
+  },
+];
+
 function PubGuide() {
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <CustomSpace
         direction={"vertical"}
         separator={"----------------------------------------"}
       >
+        <SearchForm
+          items={searchItems}
+          onSearch={(values) => console.log("검색조건", "values")}
+        />
+        <CustomInput placeholder="Custom Input" />
+        <Input placeholder="ant input" />
         <CustomFlex gap={"20px"}>
           <CustomRadio disabled>Radio 버튼</CustomRadio>
           <CustomRadio checked>Radio 버튼</CustomRadio>
@@ -60,6 +90,7 @@ function PubGuide() {
             </CustomButton>
           </CustomSpace>
           <CustomSpace>
+            {/* 아이콘 only 버튼 */}
             <CustomButton>
               <CaretDownOutlined />
             </CustomButton>

@@ -1,4 +1,3 @@
-import "./App.css";
 import PubGuide from "./PubGuide";
 
 function App() {
