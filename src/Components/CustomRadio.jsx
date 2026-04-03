@@ -1,11 +1,14 @@
 import React from "react";
 import { Radio } from "antd";
+import styled from "styled-components";
+
+const StyleRadio = styled(Radio)``;
 const CustomRadio = ({ children, checked, disabled }) => {
   return (
     <>
-      <Radio checked={checked} disabled={disabled}>
+      <StyleRadio checked={checked} disabled={disabled}>
         {children}
-      </Radio>
+      </StyleRadio>
     </>
   );
 };

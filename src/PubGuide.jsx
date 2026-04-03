@@ -37,7 +37,20 @@ const GuideTitle = styled.h2`
 const searchItems = [
   { label: "검색영역", name: "title", type: "inputButton", span: 1 },
   { label: "데이트피커", name: "title", type: "datepicker", span: 1 },
+  { label: "데이트피커", name: "title", type: "datepicker", span: 1 },
+  { label: "데이트피커", name: "title", type: "datepicker", span: 1 },
   { label: "레인지피커", name: "title", type: "rangePicker", span: 1 },
+  { label: "레인지피커222", name: "title", type: "rangePicker", span: 1 },
+  {
+    label: "커스텀 조회기간",
+    name: "dageRange",
+    span: 1,
+    render: (form) => (
+      <Form.Item name="dateType" noStyle initialValue="all">
+        <Input />
+      </Form.Item>
+    ),
+  },
   {
     label: "커스텀 조회기간",
     name: "dageRange",
@@ -45,7 +58,11 @@ const searchItems = [
     render: (form) => (
       <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
         <Form.Item name="dateType" noStyle initialValue="all">
-          <Radio.Group optionType="button" buttonStyle="solid">
+          <Radio.Group
+            optionType="button"
+            buttonStyle="solid"
+            style={{ display: "flex", alignItems: "center" }}
+          >
             <Radio.Button value="all">전체</Radio.Button>
           </Radio.Group>
         </Form.Item>
@@ -53,6 +70,28 @@ const searchItems = [
           <Input />
         </Form.Item>
       </div>
+    ),
+  },
+  {
+    label: "커스텀 조회기간",
+    name: "dageRange",
+    span: 1,
+    render: (form) => (
+      <Space align="center" size={8} style={{ width: "100%" }}>
+        <Form.Item name="dateType" noStyle initialValue="all">
+          <CustomRadioGroup
+            optionType="button"
+            buttonStyle="solid"
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            <CustomRadio>전ssssssss체</CustomRadio>
+            <CustomRadio>전체dddddddddd11</CustomRadio>
+          </CustomRadioGroup>
+        </Form.Item>
+        <Form.Item name="dateType" noStyle initialValue="all">
+          <Input />
+        </Form.Item>
+      </Space>
     ),
   },
 ];
@@ -66,6 +105,7 @@ function PubGuide() {
       >
         <SearchForm
           items={searchItems}
+          grid={4}
           onSearch={(values) => console.log("검색조건", "values")}
         />
         <CustomInput placeholder="Custom Input" />

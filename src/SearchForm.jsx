@@ -6,6 +6,7 @@ import {
   CustomDatePicker,
   CustomRangePicker,
 } from "./Components";
+
 const SearchForm = ({ items = [], grid = 3, onSearch }) => {
   const [form] = Form.useForm();
   const baseSpan = 24 / grid; //한칸당 기본 span 계산
@@ -21,7 +22,9 @@ const SearchForm = ({ items = [], grid = 3, onSearch }) => {
       case "inputButton":
         return (
           <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-            <CustomInput {...commonProps} noStyle />
+            <Form.Item name={item.name} noStyle>
+              <CustomInput {...commonProps} />
+            </Form.Item>
             <CustomButton $variant="secondary">검색</CustomButton>
           </div>
         );
@@ -46,6 +49,8 @@ const SearchForm = ({ items = [], grid = 3, onSearch }) => {
       form={form}
       onSearch={onSearch}
       labelCol={{ flex: "100px" }}
+      labelAlign="left"
+      colon={false}
       style={{ padding: "24px", background: "#fbfbfb", borderRadius: "8px" }}
     >
       <Row gutter={[16, 0]}>

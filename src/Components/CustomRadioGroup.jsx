@@ -9,7 +9,11 @@ const StyleRadioGroup = styled(Radio.Group)`
   .ant-radio-button-wrapper {
     border-radius: 4px;
     flex: 1;
-    min-width: 0;
+    min-width: 80px;
+    display: inline-table;
+  }
+  .ant-radio-button-label {
+    white-space: nowrap;
   }
   .ant-radio-button-wrapper-disabled {
     border-color: red;
