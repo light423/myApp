@@ -8,7 +8,7 @@ const CustomDatePicker = () => {
   };
   return (
     <>
-      <DatePicker onChange={onChange} />
+      <DatePicker onChange={onChange} style={{ width: "100%" }} />
     </>
   );
 };
