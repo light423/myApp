@@ -5,7 +5,7 @@ const CustomSpace = ({
   type,
   children,
   size,
-  direction = "horizontal",
+  orientation = "horizontal",
   ...rest
 }) => {
   const getSpacing = () => {
@@ -17,7 +17,7 @@ const CustomSpace = ({
     <Space
       className={`custom-space ${className}`.trim()}
       size={getSpacing()}
-      direction={direction}
+      orientation={orientation}
       {...rest}
     >
       {children}

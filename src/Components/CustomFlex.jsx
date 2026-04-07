@@ -5,13 +5,13 @@ const CustomFlex = ({
   type,
   children,
   size,
-  direction = "horizontal",
+  orientation = "horizontal",
   ...rest
 }) => {
   return (
     <Flex
       className={`custom-flex ${className}`.trim()}
-      direction={direction}
+      orientation={orientation}
       {...rest}
     >
       {children}

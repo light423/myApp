@@ -7,14 +7,19 @@ import {
   CustomRangePicker,
 } from "./Components";
 
-const SearchForm = ({ items = [], grid = 3, onSearch }) => {
+const SearchForm = ({ items = [], grid = 4, onSearch, userRole }) => {
   const [form] = Form.useForm();
 
   const renderItem = (item) => {
-    if (item.render) return item.render(form); //커스텀 레이아웃 우선
+    if (item.render) return item.render(form, item); // 사용자가 정의한 커스텀 렌더링 함수, 커스텀 레이아웃 우선
 
     const commonProps = {
       placeholder: item.placeholder || "입력하세요",
+      onChange: (e) => {
+        if (item.onChange) {
+          item.onChange(e?.target.value, form);
+        }
+      },
     };
 
     switch (item.type) {
@@ -70,8 +75,8 @@ const SearchForm = ({ items = [], grid = 3, onSearch }) => {
       style={{ padding: "24px", background: "#fbfbfb", borderRadius: "8px" }}
     >
       <Row gutter={[48, 0]}>
-        {items?.map((item, idx) => (
-          <Col key={item.name || idx} span={6} xs={24} md={12} xl={6}>
+        {items?.map((item) => (
+          <Col key={item.id} span={6} xs={24} md={12} xl={6}>
             <Form.Item
               name={item.name}
               label={item.label}
@@ -83,7 +88,7 @@ const SearchForm = ({ items = [], grid = 3, onSearch }) => {
         ))}
       </Row>
       <div>
-        <Button>조회</Button>
+        <Button htmlType="submit">조회</Button>
       </div>
     </Form>
   );

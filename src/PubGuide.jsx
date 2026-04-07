@@ -12,6 +12,7 @@ import {
   CustomSpace,
   CustomFlex,
   SearchForm,
+  ModalForm,
 } from "./Components";
 import {
   PlusOutlined,
@@ -19,6 +20,7 @@ import {
   InfoCircleOutlined,
 } from "@ant-design/icons";
 import "modern-normalize";
+import { useState } from "react";
 
 // radio
 const options = [
@@ -35,25 +37,25 @@ const GuideTitle = styled.h2`
 `;
 
 const searchItems = [
-  { label: "검색영역", name: "title", type: "inputButton", span: 1 },
-  { label: "데이트피커", name: "title", type: "datepicker", span: 1 },
-  { label: "데이트피커", name: "title", type: "datepicker", span: 1 },
-  { label: "데이트피커", name: "title", type: "datepicker", span: 1 },
-  { label: "레인지피커", name: "title", type: "rangePicker", span: 1 },
-  { label: "레인지피커222", name: "title", type: "rangePicker", span: 1 },
+  { label: "검색영역", name: "title1", type: "inputButton", span: 1 },
+  { label: "데이트피커", name: "title2", type: "datepicker", span: 1 },
+  { label: "데이트피커", name: "titl3e", type: "datepicker", span: 1 },
+  { label: "데이트피커", name: "title4", type: "datepicker", span: 1 },
+  { label: "레인지피커", name: "title5", type: "rangePicker", span: 1 },
+  { label: "레인지피커222", name: "ti6tle", type: "rangePicker", span: 1 },
   {
     label: "커스텀 조회기간",
     name: "dageRange",
     span: 1,
     render: (form) => (
-      <Form.Item name="dateType" noStyle initialValue="all">
+      <Form.Item name="dateType7" noStyle initialValue="all">
         <Input />
       </Form.Item>
     ),
   },
   {
     label: "커스텀 조회기간",
-    name: "dageRange",
+    name: "dageRange8",
     span: 1,
     render: (form) => (
       <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
@@ -73,34 +75,38 @@ const searchItems = [
     ),
   },
   {
-    label: "커스텀 조회기간",
-    name: "dageRange",
+    label: "커스텀 입력",
+    name: "customField9",
     span: 1,
-    render: (form) => (
-      <Space align="center" size={8} style={{ width: "100%" }}>
-        <Form.Item name="dateType" noStyle initialValue="all">
+    render: (form, item) => (
+      <Space align="center" size={4} style={{ width: "100%" }}>
+        <Form.Item
+          name={item.name}
+          label={item.label}
+          noStyle
+          initialValue="all"
+        >
           <CustomRadioGroup
             optionType="button"
             buttonStyle="solid"
             style={{ display: "flex", alignItems: "center" }}
           >
-            <CustomRadio>전ssssssss체</CustomRadio>
-            <CustomRadio>전체dddddddddd11</CustomRadio>
+            <CustomRadio>선택1</CustomRadio>
+            <CustomRadio>선택2</CustomRadio>
           </CustomRadioGroup>
         </Form.Item>
-        <Form.Item name="dateType" noStyle initialValue="all">
-          <Input />
-        </Form.Item>
+        <CustomButton $variant="secondary">검색</CustomButton>
       </Space>
     ),
   },
 ];
 
 function PubGuide() {
+  const [open, setOpen] = useState(false);
   return (
     <div style={{ textAlign: "center" }}>
       <CustomSpace
-        direction={"vertical"}
+        orientation={"vertical"}
         separator={"----------------------------------------"}
       >
         <SearchForm
@@ -108,13 +114,28 @@ function PubGuide() {
           grid={4}
           onSearch={(values) => console.log("검색조건", "values")}
         />
+        <ModalForm
+          open={open}
+          onCancel={() => setOpen(false)}
+          onSubmit={(v) => {
+            console.log(v);
+            setOpen(false);
+          }}
+        />
+        <CustomButton
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          열기
+        </CustomButton>
         <CustomInput placeholder="Custom Input" />
         <Input placeholder="ant input" />
         <CustomFlex gap={"20px"}>
           <CustomRadio disabled>Radio 버튼</CustomRadio>
           <CustomRadio checked>Radio 버튼</CustomRadio>
         </CustomFlex>
-        <CustomSpace direction={"vertical"} style={{ width: "100%" }}>
+        <CustomSpace orientation={"vertical"} style={{ width: "100%" }}>
           <GuideTitle>Button</GuideTitle>
           <CustomSpace>
             <CustomButton size="small">small 버튼</CustomButton>
@@ -159,7 +180,7 @@ function PubGuide() {
           </CustomSpace>
         </CustomSpace>
         <FormField />
-        <CustomSpace direction={"vertical"} style={{ width: "100%" }}>
+        <CustomSpace orientation={"vertical"} style={{ width: "100%" }}>
           <GuideTitle>Radio</GuideTitle>
           <CustomRadioGroup
             options={options}
@@ -169,7 +190,7 @@ function PubGuide() {
           <CustomRadio disabled>Radio 버튼</CustomRadio>
           <CustomRadio checked>Radio 버튼</CustomRadio>
         </CustomSpace>
-        <CustomSpace direction={"vertical"} style={{ width: "100%" }}>
+        <CustomSpace orientation={"vertical"} style={{ width: "100%" }}>
           <GuideTitle>form</GuideTitle>
           <Form layout="vertical" style={{ maxWidth: 300, padding: 20 }}>
             <CustomInput
@@ -206,11 +227,11 @@ function PubGuide() {
             />
           </Form>
         </CustomSpace>
-        <CustomSpace direction={"vertical"} style={{ width: "100%" }}>
+        <CustomSpace orientation={"vertical"} style={{ width: "100%" }}>
           <GuideTitle>tab</GuideTitle>
           <CustomTab></CustomTab>
         </CustomSpace>
-        <CustomSpace direction={"vertical"} style={{ width: "100%" }}>
+        <CustomSpace orientation={"vertical"} style={{ width: "100%" }}>
           <GuideTitle>Accordion</GuideTitle>
           <AccordionGroup></AccordionGroup>
         </CustomSpace>

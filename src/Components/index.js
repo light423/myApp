@@ -15,3 +15,4 @@ export { default as CustomDatePicker } from "./CustomDatePicker";
 export { default as CustomRangePicker } from "./CustomRangePicker";
 
 export { default as SearchForm } from "../SearchForm";
+export { default as ModalForm } from "../ModalForm";
