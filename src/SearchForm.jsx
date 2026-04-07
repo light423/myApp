@@ -7,7 +7,7 @@ import {
   CustomRangePicker,
 } from "./Components";
 
-const SearchForm = ({ items = [], grid = 4, onSearch, userRole }) => {
+const SearchForm = ({ items = [], grid = 4, onFinish, userRole }) => {
   const [form] = Form.useForm();
 
   const renderItem = (item) => {
@@ -67,7 +67,7 @@ const SearchForm = ({ items = [], grid = 4, onSearch, userRole }) => {
     <Form
       layout="horizontal"
       form={form}
-      onSearch={onSearch}
+      onFinish={onFinish}
       labelCol={{ xs: { span: 24 }, sm: { flex: "100px" } }}
       wrapperCol={{ xs: { span: 24 }, sm: { flex: "auto" } }}
       labelAlign="left"

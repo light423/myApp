@@ -13,6 +13,7 @@ import {
   CustomFlex,
   SearchForm,
   ModalForm,
+  MyForm,
 } from "./Components";
 import {
   PlusOutlined,
@@ -37,13 +38,20 @@ const GuideTitle = styled.h2`
 `;
 
 const searchItems = [
-  { label: "검색영역", name: "title1", type: "inputButton", span: 1 },
-  { label: "데이트피커", name: "title2", type: "datepicker", span: 1 },
-  { label: "데이트피커", name: "titl3e", type: "datepicker", span: 1 },
-  { label: "데이트피커", name: "title4", type: "datepicker", span: 1 },
-  { label: "레인지피커", name: "title5", type: "rangePicker", span: 1 },
-  { label: "레인지피커222", name: "ti6tle", type: "rangePicker", span: 1 },
+  { id: 1, label: "검색영역", name: "title1", type: "inputButton", span: 1 },
+  { id: 2, label: "데이트피커", name: "title2", type: "datepicker", span: 1 },
+  { id: 3, label: "데이트피커", name: "titl3e", type: "datepicker", span: 1 },
+  { id: 4, label: "데이트피커", name: "title4", type: "datepicker", span: 1 },
+  { id: 5, label: "레인지피커", name: "title5", type: "rangePicker", span: 1 },
   {
+    id: 6,
+    label: "레인지피커222",
+    name: "ti6tle",
+    type: "rangePicker",
+    span: 1,
+  },
+  {
+    id: 7,
     label: "커스텀 조회기간",
     name: "dageRange",
     span: 1,
@@ -54,12 +62,13 @@ const searchItems = [
     ),
   },
   {
+    id: 8,
     label: "커스텀 조회기간",
     name: "dageRange8",
     span: 1,
     render: (form) => (
       <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-        <Form.Item name="dateType" noStyle initialValue="all">
+        <Form.Item name="dateType8" noStyle initialValue="all">
           <Radio.Group
             optionType="button"
             buttonStyle="solid"
@@ -68,13 +77,14 @@ const searchItems = [
             <Radio.Button value="all">전체</Radio.Button>
           </Radio.Group>
         </Form.Item>
-        <Form.Item name="dateType" noStyle initialValue="all">
+        <Form.Item name="dateType9" noStyle initialValue="all">
           <Input />
         </Form.Item>
       </div>
     ),
   },
   {
+    id: 9,
     label: "커스텀 입력",
     name: "customField9",
     span: 1,
@@ -112,8 +122,9 @@ function PubGuide() {
         <SearchForm
           items={searchItems}
           grid={4}
-          onSearch={(values) => console.log("검색조건", "values")}
+          onFinish={(values) => console.log("검색조건", "values")}
         />
+        <MyForm />
         <ModalForm
           open={open}
           onCancel={() => setOpen(false)}

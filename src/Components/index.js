@@ -16,3 +16,4 @@ export { default as CustomRangePicker } from "./CustomRangePicker";
 
 export { default as SearchForm } from "../SearchForm";
 export { default as ModalForm } from "../ModalForm";
+export { default as MyForm } from "../MyForm";
