@@ -1,4 +1,3 @@
-import "./reset.css";
 import styled, { css } from "styled-components";
 import { Form, Space, Radio, Input } from "antd";
 import {
